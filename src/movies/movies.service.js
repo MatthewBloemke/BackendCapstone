@@ -1,12 +1,11 @@
 const knex = require("../db/connection")
 
 const list = (isShowing) => {
-    
     if (isShowing) {
         return knex("movies_theaters as mt")
             .join("movies as m", "m.movie_id", "mt.movie_id")
-            .select("*")
-            .groupBy("m.movie_id")
+            .select("m.*")
+            .groupBy("m.movie_id",)
             .where({is_showing: true})
     } else {
         return knex("movies").select("*");

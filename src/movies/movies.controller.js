@@ -15,6 +15,7 @@ async function read (req, res) {
 }
 
 async function list (req, res) {
+    console.log(req.query)
     const isShowing = req.query.is_showing;
     res.json({data: await service.list(isShowing)})
 }
